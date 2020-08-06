@@ -1,0 +1,14 @@
+button {
+  border-radius: 20px;
+
+  display: block;
+
+  background: salmon;
+  color: white;
+
+  font-size: 4rem;
+
+  &.home__btn {
+    width: 33%;
+  }
+}
