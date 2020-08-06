@@ -11,7 +11,7 @@ export default () => {
       <Nav />
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/edit" exact component={Edit} />
+        <Route path="/edit/:name" component={Edit} />
       </Switch>
     </Router>
   )

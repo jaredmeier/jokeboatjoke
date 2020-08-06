@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Button from './Button';
 import FormError from './FormError';
 
-export default () => {
+export default ({ addJoke }) => {
   const [setup, setSetup] = useState('');
   const [punchline, setPunchline] = useState('');
   const [setupErrors, setSetupErrors] = useState({ length: '', topic: '' });
@@ -64,11 +64,19 @@ export default () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (validateInput()) console.log('Valid, good');
+    if (validateInput()) {
+      console.log('Valid, good');
+      
+      const joke = {
+        setup,
+        punchline,
+      }
+      addJoke(joke);
+    }
   };
 
   return (
-    <form className='edit__form'>
+    <form className='edit__form' onSubmit={handleSubmit}>
       <input
         type='text'
         name='setup'
@@ -85,7 +93,7 @@ export default () => {
         onChange={e => setPunchline(e.target.value)}
       ></input>
       <FormError errors={punchlineErrors} />
-      <Button type='submit' styleName='form__submit' handler={handleSubmit}>
+      <Button type='submit' styleName='form__submit'>
         Submit
       </Button>
       <small>Example</small>
