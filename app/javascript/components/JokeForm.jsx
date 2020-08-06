@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import Button from './Button';
+import FormError from './FormError';
 
 export default () => {
   const [setup, setSetup] = useState('');
@@ -13,6 +14,10 @@ export default () => {
   }, [setup, punchline]);
 
   const validateInput = () => {
+    // refactor below
+    //
+    //
+    
     let valid = true;
 
     if (setup.length < 1) {
@@ -71,11 +76,7 @@ export default () => {
         value={setup}
         onChange={e => setSetup(e.target.value)}
       ></input>
-      <small>
-        {Object.values(setupErrors).map((error, idx) => (
-          <React.Fragment key={idx}>{error} </React.Fragment>
-        ))}
-      </small>
+      <FormError errors={setupErrors} />
       <input
         type='text'
         name='punchline'
@@ -83,11 +84,7 @@ export default () => {
         value={punchline}
         onChange={e => setPunchline(e.target.value)}
       ></input>
-      <small>
-        {Object.values(punchlineErrors).map((error, idx) => (
-          <React.Fragment key={idx}>{error} </React.Fragment>
-        ))}
-      </small>
+      <FormError errors={punchlineErrors} />
       <Button type='submit' styleName='form__submit' handler={handleSubmit}>
         Submit
       </Button>

@@ -10,8 +10,8 @@
 
     width: 75%;
 
-    > input {
-      margin: 20px 0;
+    > input, button[type="submit"] {
+      margin-top: 20px;
     }
   }
 }
