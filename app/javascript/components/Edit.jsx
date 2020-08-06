@@ -1,7 +1,11 @@
 import React from 'react';
 
+import JokeForm from './JokeForm';
+
 export default props => {
   return (
-    <button className={'' + (props.styleName || '')}>{props.children}</button>
+    <div className='edit'>
+      <JokeForm />
+    </div>
   );
 };

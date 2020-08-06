@@ -1,0 +1,17 @@
+.edit {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    width: 75%;
+
+    > input {
+      margin: 20px 0;
+    }
+  }
+}
