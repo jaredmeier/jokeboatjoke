@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 
 export default ({ jokes, collapse }) => {
+  if (!collapse && jokes.length == 0) {
+    return (
+      <div style={{marginTop: '20px'}}>No jokes yet</div>
+    )
+  }
+
   return (
     <div className={`edit__joke-list ${collapse ? 'collapse' : ''}`}>
       <ul>

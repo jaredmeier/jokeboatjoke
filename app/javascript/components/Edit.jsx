@@ -6,7 +6,7 @@ import JokeList from './JokeList';
 import Download from './Download';
 
 export default props => {
-  const [seeAll, toggleSeeAll] = useState(true);
+  const [seeAll, toggleSeeAll] = useState(false);
   const [jokes, setJokes] = useState([]);
 
   const { name } = props.match.params;
@@ -30,6 +30,7 @@ export default props => {
 
   return (
     <div className='edit'>
+      <div className='edit__header'>{name}</div>
       <JokeForm addJoke={addJoke} />
       <div className='edit__btn-container'>
         <Button
