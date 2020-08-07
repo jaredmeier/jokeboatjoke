@@ -3,9 +3,10 @@ import React, { useState, useEffect } from 'react';
 import JokeForm from './JokeForm';
 import Button from './Button';
 import JokeList from './JokeList';
+import Download from './Download';
 
 export default props => {
-  const [seeAll, toggleSeeAll] = useState(false);
+  const [seeAll, toggleSeeAll] = useState(true);
   const [jokes, setJokes] = useState([]);
 
   const { name } = props.match.params;
@@ -29,16 +30,20 @@ export default props => {
 
   return (
     <div className='edit'>
-      <JokeForm addJoke={addJoke}/>
-      <Button
-        handler={(e) => {
-          e.target.blur();
-          toggleSeeAll(prev => !prev);
-        }}
-        styleName='edit__btn-toggle-jokes'>
-        {seeAll ? 'Hide' : 'See'} All Episode Jokes
-      </Button>
-      {seeAll && <JokeList jokes={jokes}/>}
+      <JokeForm addJoke={addJoke} />
+      <div className='edit__btn-container'>
+        <Button
+          handler={e => {
+            e.target.blur();
+            toggleSeeAll(prev => !prev);
+          }}
+          styleName='edit__btn-toggle-jokes'
+        >
+          {seeAll ? 'Hide' : 'See All'} Episode Jokes
+        </Button>
+        <Download data={jokes} />
+      </div>
+      <JokeList jokes={jokes} collapse={!seeAll} />
     </div>
   );
 };

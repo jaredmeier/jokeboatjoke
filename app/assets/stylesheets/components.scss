@@ -9,14 +9,20 @@ button {
 
   font-size: 1.3rem;
   transition: all .1s linear;
+  position: relative;
 
   &.home__btn {
     width: 100%;
   }
 
-  &.edit__btn-toggle-jokes {
+  &.edit__btn-toggle-jokes, &.edit__btn-download {
     font-size: 1rem;
     margin-top: 20px;
+  }
+
+  &.edit__btn-download {
+    position: absolute;
+    right: 10%;
   }
 
   &:hover {
@@ -27,6 +33,20 @@ button {
     outline: none;
     background: #41EAD4;
   }
+
+  &.disabled {
+    background: rgba(0, 0, 0, 0.1);
+    border-color: white;
+
+    &:hover {
+      cursor: default;
+    }
+  }
+}
+
+#download {
+  font-size: 1rem;
+  display: flex;
 }
 
 .home__btn-link {
@@ -36,6 +56,23 @@ button {
 
 .form__error {
   color: red;
+  flex: 1 0 25px;
+  transition: all .1s linear;
+  transform: skewX(0deg) scale(1);
+  transform-origin: left;
+
+  &.shake {
+    animation: .8s shake;
+  }
+}
+
+@keyframes shake {
+    0% { transform: skewX(-15deg); }
+    5% { transform: skewX(15deg); }
+    10% { transform: skewX(-15deg); }
+    15% { transform: skewX(15deg) scale(1.2); }
+    20% { transform: skewX(0deg);  }
+    100% { transform: skewX(0deg); }  
 }
 
 .modal-background {
@@ -80,15 +117,22 @@ button {
       padding: 5px 15px;
       border: 1px solid black;
       border-radius: 5px;
-      margin-top: 20px;
-
-      &.disabled {
-        background: rgba(0, 0, 0, 0.3);
-
-        &:hover {
-          cursor: default;
-        }
-      }
+      margin-top: 5px;
     }
+  }
+}
+
+.fist {
+  position: fixed;
+  transform-origin: center;
+  transform: scale(0) rotate(0deg);
+  -webkit-font-smoothing: antialiased;
+  top: 33%;
+  left: 50%;
+  z-index: 10;
+  transition: all .5s ease-in-out;
+
+  &.punch {
+    transform: scale(20) rotate(360deg);
   }
 }

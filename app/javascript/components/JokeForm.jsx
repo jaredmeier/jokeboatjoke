@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+import Checkboxes from './Checkboxes';
 import Button from './Button';
 import FormError from './FormError';
 
@@ -7,7 +8,9 @@ export default ({ addJoke }) => {
   const [setup, setSetup] = useState('');
   const [punchline, setPunchline] = useState('');
   const [setupErrors, setSetupErrors] = useState({ length: '', topic: '' });
-  const [punchlineErrors, setPunchlineErrors] = useState({blank: ''});
+  const [punchlineErrors, setPunchlineErrors] = useState({ blank: '' });
+  const [shake, setShake] = useState(false);
+  const [punch, setPunch] = useState(false);
 
   useEffect(() => {
     validateInput();
@@ -67,6 +70,8 @@ export default ({ addJoke }) => {
     if (validateInput()) {
       setPunchline('');
       setSetup('');
+      setPunch(true);
+      setTimeout(() => setPunch(false), 500);
 
       const joke = {
         setup,
@@ -74,33 +79,44 @@ export default ({ addJoke }) => {
       }
 
       addJoke(joke);
+    } else {
+      setShake(true);
+      setTimeout(() => setShake(false), 160);
     }
   };
 
   return (
-    <form className='edit__form' onSubmit={handleSubmit}>
-      <input
-        type='text'
-        name='setup'
-        placeholder="What's the setup?"
-        value={setup}
-        onChange={e => setSetup(e.target.value)}
-      ></input>
-      <FormError errors={setupErrors} />
-      <input
-        type='text'
-        name='punchline'
-        placeholder="What's the punchline?"
-        value={punchline}
-        onChange={e => setPunchline(e.target.value)}
-      ></input>
-      <FormError errors={punchlineErrors} />
-      <Button type='submit' styleName='form__submit'>
-        Submit
-      </Button>
-      <small>Example</small>
-      <small>SETUP: I want to open a store that only sells TOPIC</small>
-      <small>PUNCHLINE: and call it BLANK</small>
-    </form>
+    <>
+      <div className={`fist ${punch ? 'punch' : ''}`}>👊</div>
+      <form className='edit__form' onSubmit={handleSubmit}>
+        <input
+          type='text'
+          name='setup'
+          placeholder="What's the setup? 📣"
+          value={setup}
+          onChange={e => setSetup(e.target.value)}
+        ></input>
+        <FormError errors={setupErrors} shake={shake} />
+        <input
+          type='text'
+          name='punchline'
+          placeholder="What's the punchline? 👊"
+          value={punchline}
+          onChange={e => setPunchline(e.target.value)}
+        ></input>
+        <FormError errors={punchlineErrors} shake={shake} />
+        <Checkboxes />
+        <Button type='submit' styleName='form__submit'>
+          Submit
+        </Button>
+        <>
+          <small style={{ marginTop: '10px' }}>
+            <u>Example</u>
+          </small>
+          <small>📣 I want to open a store that only sells TOPIC</small>
+          <small>👊 and call it BLANK</small>
+        </>
+      </form>
+    </>
   );
 };
