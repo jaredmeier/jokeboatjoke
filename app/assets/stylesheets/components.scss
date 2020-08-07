@@ -137,3 +137,12 @@ button {
     transform: scale(20) rotate(360deg);
   }
 }
+
+.joke-list__btn-delete {
+  color: rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    color: rgba(0, 0, 0, 1);
+    cursor: pointer;
+  }
+}

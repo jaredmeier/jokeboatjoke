@@ -23,6 +23,16 @@ class Api::JokesController < ApplicationController
       end
     end
 
+    def destroy
+      @joke = Joke.find_by(id: params[:id])
+      if @joke
+        @joke.destroy
+        render :show
+      else
+        render json: ["Joke does not exist"], status: 400
+      end
+    end
+
     private
 
     def joke_params

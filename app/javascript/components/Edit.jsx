@@ -28,6 +28,17 @@ export default props => {
     });
   }
 
+  const deleteJoke = (id) => {
+    const url = `/api/episodes/${name}/jokes/${id}`;
+    $.ajax({
+      type: 'DELETE',
+      url: url,
+    })
+    .done(() => {
+      setJokes(prev => prev.filter(joke => joke.id !== id));
+    })
+}
+
   return (
     <div className='edit'>
       <div className='edit__header'>{name}</div>
@@ -44,7 +55,7 @@ export default props => {
         </Button>
         <Download data={jokes} />
       </div>
-      <JokeList jokes={jokes} collapse={!seeAll} />
+      <JokeList jokes={jokes} collapse={!seeAll} deleteJoke={deleteJoke} />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default ({ jokes, collapse }) => {
+export default ({ jokes, collapse, deleteJoke }) => {
   if (!collapse && jokes.length == 0) {
     return (
       <div style={{marginTop: '20px'}}>No jokes yet</div>
@@ -15,7 +15,7 @@ export default ({ jokes, collapse }) => {
             <div className='joke-list__row'>
               <div>📣</div>
               <div>{joke.setup}</div>
-              <div>
+              <div onClick={() => deleteJoke(joke.id)} className='joke-list__btn-delete'>
                 <span className='material-icons'>delete</span>
               </div>
             </div>
