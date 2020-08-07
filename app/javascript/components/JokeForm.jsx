@@ -7,8 +7,11 @@ import FormError from './FormError';
 export default ({ addJoke }) => {
   const [setup, setSetup] = useState('');
   const [punchline, setPunchline] = useState('');
+  const [categories, setCategories] = useState('things');
+
   const [setupErrors, setSetupErrors] = useState({ length: '', topic: '' });
   const [punchlineErrors, setPunchlineErrors] = useState({ blank: '' });
+
   const [shake, setShake] = useState(false);
   const [punch, setPunch] = useState(false);
 
@@ -76,6 +79,7 @@ export default ({ addJoke }) => {
       const joke = {
         setup,
         punchline,
+        categories
       }
 
       addJoke(joke);
@@ -105,7 +109,7 @@ export default ({ addJoke }) => {
           onChange={e => setPunchline(e.target.value)}
         ></input>
         <FormError errors={punchlineErrors} shake={shake} />
-        <Checkboxes />
+        <Checkboxes setCategories={setCategories} />
         <Button type='submit' styleName='form__submit'>
           Submit
         </Button>

@@ -24,7 +24,7 @@ export default ({ data }) => {
         x: false,
         setup: joke.setup.split('TOPIC').join('<TOPIC>'),
         id: startId + idx,
-        categories: ',#things',
+        categories: `,#${joke.categories}`,
         type: '5',
       };
 

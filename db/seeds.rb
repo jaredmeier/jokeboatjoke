@@ -26,7 +26,7 @@ setups.each_with_index do |setup, i|
   Joke.create!(
     setup: setup,
     punchline: punchlines[i],
-    categories: [",#things"],
+    categories: "things",
     episode_id: episode_1.id
   )
 end
@@ -35,6 +35,6 @@ episode_2 = Episode.create!(name: 'EpisodeTwo')
 Joke.create!(    
     setup: "If I were an animal I'd be a TOPIC",
     punchline: "because then I could BLANK",
-    categories: [",#things"],
+    categories: "things",
     episode_id: episode_2.id
 )

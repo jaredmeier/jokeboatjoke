@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default () => {
+export default ({ setCategories }) => {
 
   return (
     <div className='form__checkbox-container'>
@@ -8,9 +8,10 @@ export default () => {
         <input
           type='radio'
           id='things'
-          name='category'
+          name='categories'
           value='things'
           defaultChecked={true}
+          onChange={(e) => setCategories(e.target.value)}
         ></input>
         <label htmlFor='things'>things</label>
       </div>
@@ -18,8 +19,9 @@ export default () => {
         <input
           type='radio'
           id='person'
-          name='category'
+          name='categories'
           value='person'
+          onChange={(e) => setCategories(e.target.value)}
         ></input>
         <label htmlFor='person'>person</label>
       </div>
@@ -27,8 +29,9 @@ export default () => {
         <input
           type='radio'
           id='object'
-          name='category'
+          name='categories'
           value='object'
+          onChange={(e) => setCategories(e.target.value)}
         ></input>
         <label htmlFor='object'>object</label>
       </div>
