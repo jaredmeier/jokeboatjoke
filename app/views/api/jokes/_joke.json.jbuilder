@@ -1,1 +1,1 @@
-json.extract! joke, :setup, :punchline, :categories
+json.extract! joke, :id, :setup, :punchline, :categories

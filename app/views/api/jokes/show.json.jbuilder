@@ -1,0 +1,1 @@
+json.partial! 'api/jokes/joke', joke: @joke

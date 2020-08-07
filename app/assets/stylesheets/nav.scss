@@ -9,4 +9,12 @@
   font-weight: 700;
 
   border-bottom: 2px solid black;
+
+  > a {
+    transition: all .1s linear;
+
+    &:hover {
+    color: white;
+    }
+  }
 }

@@ -65,12 +65,14 @@ export default ({ addJoke }) => {
   const handleSubmit = e => {
     e.preventDefault();
     if (validateInput()) {
-      console.log('Valid, good');
-      
+      setPunchline('');
+      setSetup('');
+
       const joke = {
         setup,
         punchline,
       }
+
       addJoke(joke);
     }
   };

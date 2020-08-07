@@ -19,14 +19,23 @@ export default props => {
       })
   }, []);
 
-  const addJoke = (joke) => {
-    console.log(joke);
+  const addJoke = (newJoke) => {
+    const url = `/api/episodes/${name}/jokes`;
+
+    $.post(url, { joke: newJoke }).done(data => {
+      setJokes(prev => [data, ...prev]);
+    });
   }
 
   return (
     <div className='edit'>
       <JokeForm addJoke={addJoke}/>
-      <Button handler={() => toggleSeeAll(prev => !prev)}>
+      <Button
+        handler={(e) => {
+          e.target.blur();
+          toggleSeeAll(prev => !prev);
+        }}
+        styleName='edit__btn-toggle-jokes'>
         {seeAll ? 'Hide' : 'See'} All Episode Jokes
       </Button>
       {seeAll && <JokeList jokes={jokes}/>}
