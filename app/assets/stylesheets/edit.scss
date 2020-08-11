@@ -60,7 +60,8 @@
     padding-right: 1rem;
     margin-top: 2rem;
 
-    display: block;
+    display: flex;
+    flex: 1;
     transform-origin: top center;
     transform: scaleY(1);
     transition: all .1s ease-in;
