@@ -23,7 +23,7 @@ button {
 
   &.edit__btn-download {
     position: absolute;
-    right: 10%;
+    right: 0;
   }
 
   &:hover {
@@ -57,7 +57,8 @@ button {
 
 .form__error {
   color: red;
-  flex: 1 0 25px;
+  // flex: 1 0 25px;
+  margin-bottom: 1rem;
   transition: all .1s linear;
   transform: skewX(0deg) scale(1);
   transform-origin: left;
