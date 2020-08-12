@@ -17,6 +17,10 @@
     display: flex;
     align-items: center;
 
+    &:hover {
+        cursor: pointer;
+    }
+
     .header__copy-anchor {
       position: absolute;
       left: calc(100% + 1rem);
@@ -26,10 +30,6 @@
 
     .material-icons {
       font-size: 1.3rem;
-
-      &:hover {
-        cursor: pointer;
-      }
     }
 
     .header__copy-toast {

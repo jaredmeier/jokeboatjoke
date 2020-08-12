@@ -1,34 +1,31 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import ReactTooltip from 'react-tooltip';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
+import copy from 'copy-to-clipboard';
 
 export default ({ name }) => {
-  const displayCopyToast = () => {
-    console.log('copied');
+  const handleCopy = () => {
+    copy(window.location.href);
   };
 
   return (
-    <div className='edit__header'>
+    <div
+      className='edit__header'
+      onClick={handleCopy}
+      data-tip='link copied to clipboard!'
+    >
+      <ReactTooltip
+        event='click'
+        place='top'
+        effect='solid'
+        afterShow={() => {
+          setTimeout(() => ReactTooltip.hide(), 1400);
+        }}
+        isCapture={true}
+      />
       {name}
       <div className='header__copy-anchor'>
-        <ReactTooltip
-          event='click'
-          place='top'
-          effect='solid'
-          afterShow={() => {
-            setTimeout(() => ReactTooltip.hide(), 1400);
-          }}
-          isCapture={false}
-        />
-        <CopyToClipboard
-          text={window.location.href}
-          onCopy={() => displayCopyToast()}
-        >
-          <span data-tip='link copied to clipboard!' className='material-icons'>
-            content_copy
-          </span>
-        </CopyToClipboard>
+        <span className='material-icons'>content_copy</span>
       </div>
     </div>
   );
-}
+};

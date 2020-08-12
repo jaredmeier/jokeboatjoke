@@ -5,10 +5,10 @@
     "@babel/preset-react": "^7.10.4",
     "@rails/webpacker": "5.1.1",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "copy-to-clipboard": "^3.3.1",
     "jquery": "^3.5.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "react-copy-to-clipboard": "^5.0.2",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-tooltip": "^4.2.8"
