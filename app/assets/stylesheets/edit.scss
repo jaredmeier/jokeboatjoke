@@ -4,14 +4,48 @@
   flex: 1;
   overflow-y: auto;
   align-items: center;
-
+  
   padding: 0 2rem;
   width: 100%;
   max-width: 600px;
-
+  
   &__header {
+    position: relative;
     margin-top: 1rem;
     font-size: 1.5rem;
+
+    display: flex;
+    align-items: center;
+
+    .header__copy-anchor {
+      position: absolute;
+      left: calc(100% + 1rem);
+      display: flex;
+      align-items: center;
+    }
+
+    .material-icons {
+      font-size: 1.3rem;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .header__copy-toast {
+      border: 1px solid black;
+      border-radius: 5px;
+      background: white;
+
+      position: absolute;
+      width: max-content;
+      padding: 0.2rem;
+      font-size: 1rem;
+
+      transform: translateX(-50%);
+      top: -2rem;
+    }
+    
   }
 
   &__form {

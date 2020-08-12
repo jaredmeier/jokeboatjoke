@@ -8,8 +8,10 @@
     "jquery": "^3.5.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
+    "react-copy-to-clipboard": "^5.0.2",
     "react-dom": "^16.13.1",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "react-tooltip": "^4.2.8"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.11.0"

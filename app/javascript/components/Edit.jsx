@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+import EditHeader from './EditHeader';
 import JokeForm from './JokeForm';
 import Button from './Button';
 import JokeList from './JokeList';
@@ -37,11 +38,11 @@ export default props => {
     .done(() => {
       setJokes(prev => prev.filter(joke => joke.id !== id));
     })
-}
+  }
 
   return (
     <div className='edit'>
-      <div className='edit__header'>{name}</div>
+      <EditHeader name={name}/>
       <JokeForm addJoke={addJoke} />
       <div className='edit__btn-container'>
         <Button
