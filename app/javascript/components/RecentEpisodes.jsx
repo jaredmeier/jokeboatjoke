@@ -13,15 +13,19 @@ export default () => {
   }, []);
 
   return (
-    <div className="recent-episodes">
-      Recently Updated Episodes
-      <ul>
-        {episodes.map((episode, idx) => (
-          <li key={idx}>
-            <Link to={`/edit/${episode.name}`}>{episode.name}</Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+    {episodes.length && (
+      <div className="recent-episodes">
+        Recently Updated Episodes
+        <ul>
+          {episodes.map((episode, idx) => (
+            <li key={idx}>
+              <Link to={`/edit/${episode.name}`}>{episode.name}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+    </>
   )
 }
