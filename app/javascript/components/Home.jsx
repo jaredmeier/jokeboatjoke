@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { GlobalContext } from '../contexts/GlobalContext';
 
+import RecentEpisodes from './RecentEpisodes';
 import Button from './Button';
 import Modal from './Modal';
 import EditModal from './EditModal';
@@ -35,6 +36,7 @@ export default (props) => {
       <Link to="" onClick={handleEdit} className="home__btn-link">
         <Button styleName='home__btn'>EDIT EPISODE</Button>
       </Link>
+      <RecentEpisodes />
     </div>
   );
 }

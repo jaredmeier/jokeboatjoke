@@ -14,6 +14,14 @@
 class Joke < ApplicationRecord
   validates :setup, :punchline, :episode_id, presence: true
   
+  after_save :update_episode
+  
   belongs_to :episode
 
+  private
+
+    def update_episode
+      ep = Episode.find_by(id: episode_id)
+      ep.update!(last_joke_added: DateTime.now)
+    end
 end
