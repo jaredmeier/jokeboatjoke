@@ -12,20 +12,20 @@ export default () => {
     });
   }, []);
 
+  if (episodes.length) {
+    return (<></>)
+  }
+
   return (
-    <>
-    {episodes.length && (
-      <div className="recent-episodes">
-        Recently Updated Episodes
-        <ul>
-          {episodes.map((episode, idx) => (
-            <li key={idx}>
-              <Link to={`/edit/${episode.name}`}>{episode.name}</Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-    )}
-    </>
+    <div className="recent-episodes">
+      Recently Updated Episodes
+      <ul>
+        {episodes.map((episode, idx) => (
+          <li key={idx}>
+            <Link to={`/edit/${episode.name}`}>{episode.name}</Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }
