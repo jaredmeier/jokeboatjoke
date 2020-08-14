@@ -12,7 +12,7 @@ export default () => {
     });
   }, []);
 
-  if (episodes.length) {
+  if (!episodes.length) {
     return (<></>)
   }
 
